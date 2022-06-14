@@ -4,6 +4,7 @@
     Author     : Dell 7520
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,20 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div>
+            <select>
+                <c:forEach begin="0" end="4">
+                    <option>FU-HL</option>
+                </c:forEach>
+            </select>
+            <div>
+                <label style="display: inline-block;">
+                    Lectural: 
+                </label>
+                <span style="display: inline-block; border: 1px solid #ccc; width: 200px; height: 50px;">sonnt5</span>
+                <button>View</button>
+            </div>
+        </div>
         <table> <!--buoc dau tien em se tao ra mot bang table chua cac du lieu ngay thang nam trong bang/<!-- comment -->>
             <tr>
                 <th>Year</th>
@@ -55,7 +70,7 @@
                 <td>-</td>
             </tr>
               <tr>
-                <td>Slot 3</td>
+                <td>Slot 3</td>4
                 <td><a href="">SE1610 </br>-PRJ301</br> at DE217</a></td>
                 <td><a href="">SE1501-NET </br>-PRU211m</br> at DE-311 </a></td>
                 <td><a href="">SE1610 </br>-PRJ301</br> at DE217</a></td>
