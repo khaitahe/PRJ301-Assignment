@@ -48,16 +48,14 @@
                 <th>22/01</th>
                 <th>23/01</th>
             </tr>
+            <form action="Loadlist" name="load" method="post"> 
             <tr> <!-- Buoc nay em se them mot buoc dung Href de em gan link cho cac tiet hoc -->
                 <td>Slot 1</td>
-                <td><a href="" > IOT1702 </br>-PRF192</br> at BE-301></a></td>
-                <td>-</td>
-               <td><a href="" > IOT1702 </br>-PRF192</br> at BE-301></a></td>
-                <td>-</td>
-                 <td><a href="" > IOT1702 </br>-PRF192</br> at BE-301></a></td>
-                <td>-</td>
-                <td>-</td>
+                <c:forEach items="${listC}" var="i">              
+                <td><a href="" > IOT1702 </br>- ${i.cname}</br> at BE-301></a></td>           
+                </c:forEach>
             </tr>
+            </form>
                <tr>
                 <td>Slot 2</td>
                 <td><a href="">AI1604 </br>-DBI202</br> at BE-315</a></td>

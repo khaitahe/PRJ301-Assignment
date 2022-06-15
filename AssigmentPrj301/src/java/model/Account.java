@@ -44,6 +44,12 @@ public class Account {
         return pass;
     }
 
+    public Account(String user, String pass, int role) {
+        this.user = user;
+        this.pass = pass;
+        this.role = role;
+    }
+
     public void setPass(String pass) {
         this.pass = pass;
     }

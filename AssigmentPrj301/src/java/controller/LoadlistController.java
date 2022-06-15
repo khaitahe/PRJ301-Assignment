@@ -4,8 +4,7 @@
  */
 package controller;
 
-import dal.DBContext;
-import dal.LoginDBcontext;
+import dal.LoadlistDBcontext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,14 +12,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Account;
+import java.util.List;
+import model.Course;
 
 /**
  *
  * @author Dell 7520
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/Login"})
-public class LoginController extends HttpServlet {
+@WebServlet(name = "LoadlistController", urlPatterns = {"/Loadlist"})
+public class LoadlistController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,18 +34,13 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("username");
-        String pass = request.getParameter("password");
+        LoadlistDBcontext load = new LoadlistDBcontext();
+
+       List<Course> list = load.getAllList();
+
+        request.setAttribute("listC", list);
+        request.getRequestDispatcher("Attended.jsp").forward(request, response);
         
-        LoginDBcontext ldb = new LoginDBcontext();
-        Account account = ldb.Login(user, pass);
-        
-        if(account != null) {
-            response.getWriter().print("login successful!");
-        } else {
-            response.getWriter().print("login failed!");
-            
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
